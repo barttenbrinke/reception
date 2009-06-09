@@ -1,0 +1,56 @@
+= Reception
+Reception is a rails-fronted for transmission-daemon for people who want to automate torrent downloading.
+In contrast to Clutch, Reception does not just download your torrents, it also automates the finding and filtering.
+
+Request log analyzer was designed and built by Bart ten Brinke.
+
+== Installation
+You must have a server running transmission-daemon
+
+Install reception from source (gem is not available at this time)
+  $ git clone git://github.com/barttenbrinke/reception.git
+
+Migrate the database
+  $ rake db:migrate RAILS_ENV=production
+  
+Add the following line into your cron
+  $ 30 * * * * /your/directory/reception/rake reception:update
+
+Startup reception on your server and open it in a browser
+  $ ruby script/server -e production &
+  $ open http://yourserver:3000
+
+
+== Usage
+Open the transmission tab to verify your settings if the connection to transmission-daemon is not working.
+
+Go to the sources tab and add a new source for example:
+  Name: Ubuntu torrents
+  Url: http://www.ubuntu.com/getubuntu/downloadmirrors
+  Source type : scraper
+  Enabled : true
+  
+No press test filters. As you can see Reception finds a lot of acceptable torrents.
+Say we only want to have the amd64 torrents.
+Click Back to Source, Should include add filter and enter the word: 'amd64'.
+Create and go back to 'test filters'.
+
+All the torrents which to not include 'amd64' should now be rejected.
+This can be refined as necessary.
+
+
+== TODO
+As you have probably noticed, this is version 1.0 so there are still things to do:
+ * Package project in gem
+ * Automate cron installation
+ * Nicer torrent view + Ajax updater
+ * Automated categorization of downloaded files.
+
+If you feel like helping out, please do!
+
+== Additional information
+
+* Project wiki at GitHub: http://wiki.github.com/barttenbrinke/reception
+* RDoc documentation: http://barttenbrinke.github.com/reception
+
+git remote add github git@github.com:barttenbrinke/reception.git

@@ -1,0 +1,38 @@
+<h1>Testing filters for Source <%=h @source.name %> <i>(<%=h @source.enabled ? 'Enabled' : 'Disabled'%></i>)</h1>
+<p>
+  <%= link_to @source.url, @source.url, :target => 'new' %>
+</p>
+
+<p>
+  <b>Filters</b>
+  <br/>
+  <ul class="filter">
+  <% @filters.each do |filter| %>
+    <li><%= filter.to_s %></li>
+  <% end %>
+  </ul>
+</p>
+
+<br/><br/>
+
+<p>
+  <b>Accepted torrents</b>
+  <ul class="filter">
+  <% @accepted_torrents.each do |torrent| %>
+    <li><%= torrent.to_s %></li>
+  <% end %>
+  </ul>
+</p>
+
+<p>
+  <b>Rejected torrents</b>
+  <ul class="filter">
+  <% @rejected_torrents.each do |torrent| %>
+    <li><%= torrent.to_s %></li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Back to source', source_path(@source) %>
+
+<div class="clearfix">&nbsp;</div>

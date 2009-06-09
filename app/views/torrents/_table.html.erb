@@ -1,0 +1,19 @@
+<% if torrents && torrents.length > 0 %>
+<h1><%= title %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>&nbsp;</th>
+    <th>Ratio</th>
+    <th>State</th>
+    <th>&nbsp;</th>
+  </tr>
+
+<% torrents.each do |torrent| %>
+  <%= render :partial => 'show', :locals => {:torrent => torrent} %>
+<% end %>
+</table>
+
+<br />
+<% end %>

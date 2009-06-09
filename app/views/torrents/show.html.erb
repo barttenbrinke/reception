@@ -1,0 +1,30 @@
+<p>
+  <b>Name:</b>
+  <%=h @torrent.name %>
+</p>
+
+<b>Description:</b>
+  <%=h @torrent.description %>
+</p>
+
+<p>
+  <b>Torrent url:</b>
+  <%=h @torrent.torrent_url %>
+</p>
+
+  <b>Download:</b>
+  <%=h @torrent.download %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%=h @torrent.completed %>
+</p>
+
+<p>
+  <b>Ratio:</b>
+  <%=h @torrent.ratio %>
+</p>
+
+<%= link_to 'Edit', edit_torrent_path(@torrent) %> |
+<%= link_to 'Back', torrents_path %>

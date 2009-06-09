@@ -1,0 +1,16 @@
+<tr>
+  <td><%=h torrent.name %></td>
+  <td><%=h torrent.download_percentage %>%</td>
+  <td><%=h torrent.ratio.round(2) %></td>
+  <td><%=h torrent.fetch_state %></td>
+  <% if torrent.fetch_state == :downloading %>
+    <td><%= link_to 'Pause', torrent_path(torrent, :status => 'paused'), :confirm => 'Are you sure?', :method => :put %></td>
+  <% elsif torrent.fetch_state == :seeding %>
+    <td><%= link_to 'Stop seeding', torrent_path(torrent, :status => 'completed'), :method => :put %></td>
+  <% elsif torrent.fetch_state == :paused %>
+    <td><%= link_to 'Resume', torrent_path(torrent, :status => 'downloading'), :method => :put %> |
+    <%= link_to 'Destroy', torrent, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% elsif torrent.fetch_state == :completed %>
+    <td>&nbsp;</td>
+  <% end %>
+</tr>

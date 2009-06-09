@@ -1,0 +1,23 @@
+<h1>Edit filter for <%=h @source.to_s %></h1>
+
+<% form_for(@filter, :url => source_filter_path(@source, @filter)) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label "The word" %><br />
+    <%= f.text_field :keyword %>
+  </p>
+  <p>
+    <% if @filter.positive %>
+      has to be present for the torrent to download.
+    <% else %>
+      should <b>NOT</b> be present for a torrent to download.  
+    <% end %>
+    <%= f.hidden_field :positive %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back to source', source_path(@source) %>

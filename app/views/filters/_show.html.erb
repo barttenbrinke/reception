@@ -1,0 +1,5 @@
+<li>
+  <%=h filter.keyword %> 
+  (<%= link_to 'edit', edit_source_filter_path(source, filter) %> |
+  <%= link_to 'destroy', source_filter_path(source, filter), :confirm => 'Are you sure?', :method => :delete %>)
+</li>

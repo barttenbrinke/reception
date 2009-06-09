@@ -1,0 +1,8 @@
+<%= render :partial => 'table', :locals => {:torrents => @active_torrents, :title => "Running torrents"} %>
+
+<%= link_to 'Add torrent', new_torrent_path %>
+<br/><br/>
+
+<%= render :partial => 'table', :locals => {:torrents => @paused_torrents, :title => "Paused torrents"} %>
+
+<%= render :partial => 'table', :locals => {:torrents => @completed_torrents, :title => "Completed torrents (last 10)"} %>

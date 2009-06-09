@@ -1,0 +1,34 @@
+<h1>Setting</h1>
+
+<table>
+  <tr>
+    <th>Host</th>
+    <th>Port</th>
+    <th>User</th>
+    <th>Password</th>
+    <th>Path</th>
+    <th>Uplimit</th>
+    <th>Downlimit</th>
+    <th>&nbsp;</th>
+  </tr>
+
+  <tr>
+    <td><%=h @setting.host %></td>
+    <td><%=h @setting.port %></td>
+    <td><%=h @setting.user %></td>
+    <td><%=h @setting.password %></td>
+    <td><%=h @setting.path %></td>
+    <td><%=h @setting.session_uplimit %></td>
+    <td><%=h @setting.session_downlimit %></td>
+    <td><%= link_to 'Edit', edit_setting_path(@setting) %></td>
+  </tr>
+</table>
+
+<% if @remote.connected? %>
+  <pre>
+    <%= @remote.session_info.inspect  %>
+  </pre>
+<% else %>
+ Unable to connect.
+<% end %>
+

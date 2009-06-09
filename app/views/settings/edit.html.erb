@@ -1,0 +1,38 @@
+<h1>Change your transmission settings</h1>
+
+<% form_for(@setting) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label "Host transmission is on" %><br />
+    <%= f.text_field :host %>
+  </p>
+  <p>
+    <%= f.label :port %><br />
+    <%= f.text_field :port %>
+  </p>
+  <p>
+    <%= f.label :path %><br />
+    <%= f.text_field :path %>
+  </p>
+  <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :session_uplimit %><br />
+    <%= f.text_field :session_uplimit %>
+  </p>
+  <p>
+    <%= f.label :session_downlimit %><br />
+    <%= f.text_field :session_downlimit %>
+  </p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>

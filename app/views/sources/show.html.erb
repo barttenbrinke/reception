@@ -1,0 +1,42 @@
+<h1>Source <%=h @source.name %> <i>(<%=h @source.enabled ? 'Enabled' : 'Disabled'%></i>)</h1>
+<p>
+  <%= link_to @source.url, @source.url, :target => 'new' %>
+</p>
+
+<p>
+  <b>Using source type:</b>
+  <%=h @source.source_type %>
+</p>
+
+<p>
+  
+</p>
+
+<p>
+  <b>Filters</b>
+  <br/>
+  <i>Torrents should include:</i>
+  <br/>
+  <ul class="filter">
+  <% @source.filters.positive.each do |filter| %>
+    <%= render :partial => 'filters/show', :locals => {:filter => filter, :source => @source} %>
+  <% end %>
+    <li><%= link_to 'add filter', new_source_filter_path(@source) %></li>
+  </ul>
+  <br/>
+  <br/>
+
+  <i>Torrents should not include:</i>
+  <br/>
+  <ul class="filter">
+  <% @source.filters.negative.each do |filter| %>
+    <%= render :partial => 'filters/show', :locals => {:filter => filter, :source => @source} %>
+  <% end %>
+    <li><%= link_to 'add filter', new_source_filter_path(@source, :positive => 'false') %></li>
+  </ul>
+  <br/>
+</p>
+
+<%= link_to 'Test filters', source_filters_path(@source) %> |
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

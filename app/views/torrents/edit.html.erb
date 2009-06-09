@@ -1,0 +1,64 @@
+<h1>Editing torrent</h1>
+
+<% form_for(@torrent) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :series %><br />
+    <%= f.text_field :series %>
+  </p>
+  <p>
+    <%= f.label :season %><br />
+    <%= f.text_field :season %>
+  </p>
+  <p>
+    <%= f.label :episode %><br />
+    <%= f.text_field :episode %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :torrent_url %><br />
+    <%= f.text_field :torrent_url %>
+  </p>
+  <p>
+    <%= f.label :torrent_data %><br />
+    <%= f.text_field :torrent_data %>
+  </p>
+  <p>
+    <%= f.label :imdb_url %><br />
+    <%= f.text_field :imdb_url %>
+  </p>
+  <p>
+    <%= f.label :download %><br />
+    <%= f.check_box :download %>
+  </p>
+  <p>
+    <%= f.label :completed %><br />
+    <%= f.check_box :completed %>
+  </p>
+  <p>
+    <%= f.label :ratio %><br />
+    <%= f.text_field :ratio %>
+  </p>
+  <p>
+    <%= f.label :uplimit %><br />
+    <%= f.text_field :uplimit %>
+  </p>
+  <p>
+    <%= f.label :downlimit %><br />
+    <%= f.text_field :downlimit %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @torrent %> |
+<%= link_to 'Back', torrents_path %>

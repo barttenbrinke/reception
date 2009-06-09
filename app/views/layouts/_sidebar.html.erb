@@ -1,0 +1,27 @@
+<b>Status bar</b>
+<br/>
+<% unless @remote.connected? %> 
+Currently you are not connected to your transmission daemon.<br/>
+To fix this, please go to the <%= link_to 'Transmission', settings_path %> tab.<br/>
+<% else %> 
+<ul>
+  <li>Connected to Transmission<li>
+  <li>Monitoring <%= Source.enabled.count %> sources</li>
+  <li>Downloading <%= Torrent.active.count %> torrents</li>
+  <li>Last file <%= Torrent.find(:last).to_s[0..16] + '.' %></li>
+  <li>Uploading at <%= @remote.setting.session_uplimit %> kb</li>
+  <li>Downloading at <%= @remote.setting.session_downlimit %> kb</li>
+  
+</ul>
+
+<% end %> 
+
+<br/>
+<br/>
+<br/>
+<br/>
+<b>About reception</b>
+<br/><br/>
+<p>Reception was designed and build by Bart ten Brinke.<br/><br/>
+If you like it, please consider contributing or sending me a message: 
+<%= mail_to 'info@retrosync.com', 'info@retrosync.com', :subject => "Wow, reception just rocked my socks off!"%></p>
