@@ -2,7 +2,7 @@
 Reception is a rails-fronted for transmission-daemon for people who want to automate torrent downloading.
 In contrast to Clutch, Reception does not just download your torrents, it also automates the finding and filtering.
 
-Request log analyzer was designed and built by Bart ten Brinke.
+Reception was designed and built by Bart ten Brinke.
 
 == Installation
 You must have a server running transmission-daemon
@@ -52,5 +52,6 @@ If you feel like helping out, please do!
 
 * Project wiki at GitHub: http://wiki.github.com/barttenbrinke/reception
 * RDoc documentation: http://barttenbrinke.github.com/reception
+* Reception image was taken from: http://www.flickr.com/photos/night_photographer/3092933891/
 
 git remote add github git@github.com:barttenbrinke/reception.git
