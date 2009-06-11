@@ -46,8 +46,4 @@ begin
   puts "Options:"
   puts " -d               Launch detached daemon."
   puts " -f               Fetch torrents from all enabled sources."
-  puts " -d -l            Launch deamon and update torrents every 30 minutes."
-
-  private
-
 end
