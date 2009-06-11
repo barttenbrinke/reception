@@ -1,3 +1,53 @@
-#!/bin/bash
-rake db:migrate RAILS_ENV=production
-./script/server -e production -d
+#!/usr/bin/env ruby
+begin
+  puts "Reception 1.0 - Bart ten Brinke"
+
+  ENV['RAILS_ENV']  = 'production'
+  RAILS_ROOT = File.dirname(__FILE__) + '/../'
+  
+  def require_rake_tasks
+    require 'rubygems'
+    require 'rake'
+    require 'rake/rdoctask'
+    require 'rake/testtask'
+    require 'tasks/rails'
+    
+    Rake.application.rake_require RAILS_ROOT + '/lib/tasks/reception'
+  end
+
+  def run_single_rake_task
+    require_rake_tasks
+    Rake.application['reception:update'].invoke
+  end
+  
+  def run_looped_rake_task
+    require_rake_tasks    
+    
+    while(true)
+      Rake.application['reception:update'].invoke
+      sleep(1)
+    end
+  end
+  
+  def run_server
+    require RAILS_ROOT + '/config/boot'
+    require 'commands/server'    
+  end
+
+  if ARGV.length > 0
+    run_server            if ARGV[0] == '-d'
+    run_single_rake_task  if ARGV[0] == '-f'
+    run_looped_rake_task  if ARGV.length > 1 && ARGV[1] == '-l'
+    exit(0)
+  end
+
+  puts "Usage: reception <OPTIONS>"
+  puts
+  puts "Options:"
+  puts " -d               Launch detached daemon."
+  puts " -f               Fetch torrents from all enabled sources."
+  puts " -d -l            Launch deamon and update torrents every 30 minutes."
+
+  private
+
+end
