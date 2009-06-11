@@ -7,19 +7,20 @@ Reception was designed and built by Bart ten Brinke.
 == Installation
 You must have a server running transmission-daemon
 
-Install reception from source (gem is not available at this time)
+Fetch reception from source (gem is not available at this time)
   $ git clone git://github.com/barttenbrinke/reception.git
 
-Migrate the database
-  $ rake db:migrate RAILS_ENV=production
+Build and install the gem
+  $ rake gem:manifest
+  $ rake gem:build
+  $ sudo gem install pkg/reception-1.0.gem
   
-Add the following line into your cron
-  $ 30 * * * * /your/directory/reception/rake reception:update
-
 Startup reception on your server and open it in a browser
-  $ ruby script/server -e production &
+  $ sudo reception -d
   $ open http://yourserver:3000
 
+To run the sources import (add this to cron if you do not want to this by hand)
+  $ sudo reception -f
 
 == Usage
 Open the transmission tab to verify your settings if the connection to transmission-daemon is not working.

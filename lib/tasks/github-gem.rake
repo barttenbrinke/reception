@@ -162,6 +162,7 @@ module Rake
     
     def gemspec_file 
       @gemspec_file ||= Dir['*.gemspec'].first
+      @gemspec_file ||= Dir[RAILS_ROOT + '/*.gemspec'].first
     end
     
     def verify_current_branch(branch)
@@ -192,7 +193,7 @@ module Rake
       verify_current_branch('master')
       
       list = Dir['**/*'].sort
-      list -= [gemspec_file]
+      # list -= [gemspec_file]
 
       if File.exist?('.gitignore')
         File.read('.gitignore').each_line do |glob|
