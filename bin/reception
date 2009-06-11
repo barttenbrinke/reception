@@ -1,10 +1,5 @@
 #!/usr/bin/env ruby
 begin
-  puts "Reception 1.0 - Bart ten Brinke"
-
-  ENV['RAILS_ENV']  = 'production'
-  RAILS_ROOT = File.dirname(__FILE__) + '/..'
-  
   def require_rake_tasks
     require 'rubygems'
     require 'rake'
@@ -25,7 +20,7 @@ begin
   def run_db_migrate
     # For some odd reason this does not work, but the ugly way does?!
     # require_rake_tasks
-    # Rake.application['db:migrate'].run    
+    # Rake.application['db:migrate'].invoke    
     Dir.chdir(RAILS_ROOT)
     system("rake db:migrate RAILS_ENV=#{ENV['RAILS_ENV']}") #
   end
@@ -45,6 +40,12 @@ begin
     require 'commands/server'    
   end
 
+  # Main code
+  puts "Reception 1.0 - Bart ten Brinke"
+
+  ENV['RAILS_ENV']  = 'production'
+  RAILS_ROOT = File.dirname(__FILE__) + '/..'
+  
   if ARGV.length > 0
     run_server            if ARGV[0] == '-d'
     run_reception_update  if ARGV[0] == '-f'
@@ -57,4 +58,5 @@ begin
   puts "Options:"
   puts " -d               Launch detached daemon."
   puts " -f               Fetch torrents from all enabled sources."
+  exit(0)
 end
