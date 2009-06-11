@@ -10,6 +10,7 @@ begin
     Rake.application.rake_require 'reception', [RAILS_ROOT + '/lib/tasks']
   end
 
+  # Run reception update rake task
   def run_reception_update
     # require_rake_tasks
     # Rake.application['reception:update'].invoke
@@ -17,6 +18,7 @@ begin
     system("rake reception:update RAILS_ENV=#{ENV['RAILS_ENV']}") #
   end
   
+  # Migrate the database
   def run_db_migrate
     # For some odd reason this does not work, but the ugly way does?!
     # require_rake_tasks
@@ -25,15 +27,16 @@ begin
     system("rake db:migrate RAILS_ENV=#{ENV['RAILS_ENV']}") #
   end
   
+  # Run reception update task
   def run_looped_rake_task
-    require_rake_tasks    
-    
+    # require_rake_tasks    
     while(true)
-      Rake.application['reception:update'].invoke
-      sleep(1)
+      run_reception_update
+      sleep(90)
     end
   end
   
+  # Start up reception rails server
   def run_server
     run_db_migrate
     require RAILS_ROOT + '/config/boot'

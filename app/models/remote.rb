@@ -236,36 +236,3 @@ class Remote
     Remote::Request.new(method, args).send(self.setting)
   end
 end
-
-# if ARGV.size < 1
-#   puts "Usage: transmission.rb <command> [<ids>] [<limit>]"
-#   exit
-# else
-#   x = Transmission.new()
-#   case ARGV.shift
-#     when "info"
-#       x.get_info ARGV.shift
-#     when "easy"
-#       easy_tv = EasyTV.new(x)
-#       easy_tv.get_easy_tv_rss
-#     when "cleanup"
-#       x.cleanup_completed_torrents
-#     when "session-info"
-#       x.session_info
-#     when "uplimit"
-#       if ARGV.size == 2
-#         x.uplimit(ARGV[0], ARGV[1])
-#       else
-#         x.session_uplimit(ARGV[0])
-#       end
-#     when "downlimit"
-#       if ARGV.size == 2
-#         x.downlimit(ARGV[0], ARGV[1])
-#       else
-#         x.session_downlimit(ARGV[0])
-#       end
-#     else
-#       puts "unknown command"
-#   end
-# end
-
