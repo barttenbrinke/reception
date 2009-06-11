@@ -31,14 +31,13 @@ Go to the sources tab and add a new source for example:
   Source type : scraper
   Enabled : true
   
-No press test filters. As you can see Reception finds a lot of acceptable torrents.
+Now press test filters. As you can see Reception finds a lot of acceptable torrents.
 Say we only want to have the amd64 torrents.
 Click Back to Source, Should include add filter and enter the word: 'amd64'.
 Create and go back to 'test filters'.
 
 All the torrents which to not include 'amd64' should now be rejected.
 This can be refined as necessary.
-
 
 == TODO
 As you have probably noticed, this is version 1.0 so there are still things to do:
@@ -54,5 +53,3 @@ If you feel like helping out, please do!
 * Project wiki at GitHub: http://wiki.github.com/barttenbrinke/reception
 * RDoc documentation: http://barttenbrinke.github.com/reception
 * Reception image was taken from: http://www.flickr.com/photos/night_photographer/3092933891/
-
-git remote add github git@github.com:barttenbrinke/reception.git
