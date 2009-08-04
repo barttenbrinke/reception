@@ -1,17 +1,21 @@
 class Remote::Response
   
   attr_accessor :data
+  attr_accessor :error
   
   # Initialize Response using either a setting object or by finding one.
   # <tt>data</tt> Response object. Will be parsed using JSON.parse
-  def initialize(response_data)
+  def initialize(response_data, response = nil)
     begin
       self.data    = JSON.parse(response_data)
     rescue JSON::ParserError
       self.data    = {}
     end
     
-    y self.data if Object::DEBUG_RPC_MESSAGES == true
+    if Object::DEBUG_RPC_MESSAGES
+      y self.data
+      y response
+    end
   end
   
   # Check if the response was sucessful

@@ -3,13 +3,13 @@ Gem::Specification.new do |s|
   s.version = '1.0'
   s.date    = '2009-06-11'
   
-  # s.rubyforge_project = ''
+  s.rubyforge_project = 'reception'
   
   s.bindir = 'bin'
   s.executables = ['reception']
   s.default_executable = 'reception'
   
-  s.summary = "Rails frontend for transmission-deamon"
+  s.summary = "Rails frontend for transmission-daemon"
   s.description = "Reception is a rails-fronted for transmission-daemon for people who want to automate torrent downloading. In contrast to Clutch, Reception does not just download your torrents, it also automates the finding and filtering."
   
   s.has_rdoc = true

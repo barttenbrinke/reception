@@ -49,4 +49,5 @@ require 'rss'
 require 'open-uri'
 require 'hpricot'
 
-DEBUG_RPC_MESSAGES = false
+DEBUG_RPC_MESSAGES = true
+@@TRANSMISSION_SESSION_ID = nil
